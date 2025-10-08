@@ -72,6 +72,11 @@ def enableProguardInReleaseBuilds = false
  */
 def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
+// added this because icons were not showing up
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialIcons.ttf', 'FontAwesome.ttf', 'Ionicons.ttf' ]  // ← 使用するフォントのみ
+]
+
 android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -117,3 +122,6 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+// added this line because icons were not showing up
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
