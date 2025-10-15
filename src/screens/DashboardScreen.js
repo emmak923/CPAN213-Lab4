@@ -144,9 +144,11 @@ const DashboardScreen = () => {
         <ResponsiveGrid
           data={dashboardData.statistics}
           renderItem={renderStatisticWidget}
-          numColumns={
-            isLandscape && isTab ? 4 : isLandscape ? 2 : isTab ? 2 : 1
-          }
+          numColumns={null}
+          // change to null and let ResponsiveGrid handle columns
+          // numColumns={
+          //   isLandscape && isTab ? 4 : isLandscape ? 2 : isTab ? 2 : 1
+          // }
         />
 
         {/* Quick Actions Widget */}

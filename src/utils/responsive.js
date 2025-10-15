@@ -5,10 +5,10 @@ let screenData = Dimensions.get('window');
 
 // Screen breakpoints
 export const breakpoints = {
-  small: 350, // Small phones
-  medium: 400, // Regular phones
-  large: 500, // Large phones
-  tablet: 768, // Tablets
+  small: 350, // Small phones 350
+  medium: 400, // Regular phones 400
+  large: 500, // Large phones 500
+  tablet: 805, // Tablets 768
   desktop: 1024, // Large tablets/desktop
 };
 
@@ -52,11 +52,11 @@ export const getGridColumns = () => {
     case 'small':
       return 1;
     case 'medium':
-      return 2;
+      return 1; // Changed from 2 to 1 for better readability on medium devices
     case 'large':
       return 2;
     case 'tablet':
-      return 3;
+      return 2; // Changed from 3 to 2
     default:
       return 4;
   }
@@ -76,17 +76,37 @@ export const listenForOrientationChange = callback => {
   return subscription;
 };
 
-// Responsive spacing
-export const spacing = {
+// // Responsive spacing
+// export const spacing = {
+//   xs: wp('1%'),
+//   sm: wp('2%'),
+//   md: wp('4%'),
+//   lg: wp('6%'),
+//   xl: wp('8%'),
+// };
+
+// // Responsive typography
+// export const typography = {
+//   h1: rf(28),
+//   h2: rf(24),
+//   h3: rf(20),
+//   h4: rf(18),
+//   body: rf(16),
+//   caption: rf(14),
+//   small: rf(12),
+// };
+
+// 💡 修正 1: spacing を関数化する
+export const getSpacing = () => ({
   xs: wp('1%'),
   sm: wp('2%'),
   md: wp('4%'),
   lg: wp('6%'),
   xl: wp('8%'),
-};
+});
 
-// Responsive typography
-export const typography = {
+// 💡 修正 2: typography を関数化する
+export const getTypography = () => ({
   h1: rf(28),
   h2: rf(24),
   h3: rf(20),
@@ -94,9 +114,29 @@ export const typography = {
   body: rf(16),
   caption: rf(14),
   small: rf(12),
-};
+});
 
-// Check if device is tablet
+// // Check if device is tablet
+// export const isTablet = () => {
+//   return getDeviceType() === 'tablet' || getDeviceType() === 'desktop';
+// };
+
+// // Get adaptive padding based on device type
+// export const getAdaptivePadding = () => {
+//   const deviceType = getDeviceType();
+//   switch (deviceType) {
+//     case 'small':
+//       return spacing.md;
+//     case 'medium':
+//       return spacing.md;
+//     case 'large':
+//       return spacing.lg;
+//     default:
+//       return spacing.xl;
+//   }
+// };
+
+// Check if device is tablet (変更なし)
 export const isTablet = () => {
   return getDeviceType() === 'tablet' || getDeviceType() === 'desktop';
 };
@@ -104,14 +144,15 @@ export const isTablet = () => {
 // Get adaptive padding based on device type
 export const getAdaptivePadding = () => {
   const deviceType = getDeviceType();
+  const currentSpacing = getSpacing(); // 💡 getSpacing() を呼び出す
+
   switch (deviceType) {
     case 'small':
-      return spacing.md;
     case 'medium':
-      return spacing.md;
+      return currentSpacing.md;
     case 'large':
-      return spacing.lg;
+      return currentSpacing.lg;
     default:
-      return spacing.xl;
+      return currentSpacing.xl;
   }
 };
