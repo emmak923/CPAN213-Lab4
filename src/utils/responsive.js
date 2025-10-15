@@ -76,37 +76,17 @@ export const listenForOrientationChange = callback => {
   return subscription;
 };
 
-// // Responsive spacing
-// export const spacing = {
-//   xs: wp('1%'),
-//   sm: wp('2%'),
-//   md: wp('4%'),
-//   lg: wp('6%'),
-//   xl: wp('8%'),
-// };
-
-// // Responsive typography
-// export const typography = {
-//   h1: rf(28),
-//   h2: rf(24),
-//   h3: rf(20),
-//   h4: rf(18),
-//   body: rf(16),
-//   caption: rf(14),
-//   small: rf(12),
-// };
-
-// 💡 修正 1: spacing を関数化する
-export const getSpacing = () => ({
+// Responsive spacing
+export const spacing = {
   xs: wp('1%'),
   sm: wp('2%'),
   md: wp('4%'),
   lg: wp('6%'),
   xl: wp('8%'),
-});
+};
 
-// 💡 修正 2: typography を関数化する
-export const getTypography = () => ({
+// Responsive typography
+export const typography = {
   h1: rf(28),
   h2: rf(24),
   h3: rf(20),
@@ -114,29 +94,9 @@ export const getTypography = () => ({
   body: rf(16),
   caption: rf(14),
   small: rf(12),
-});
+};
 
-// // Check if device is tablet
-// export const isTablet = () => {
-//   return getDeviceType() === 'tablet' || getDeviceType() === 'desktop';
-// };
-
-// // Get adaptive padding based on device type
-// export const getAdaptivePadding = () => {
-//   const deviceType = getDeviceType();
-//   switch (deviceType) {
-//     case 'small':
-//       return spacing.md;
-//     case 'medium':
-//       return spacing.md;
-//     case 'large':
-//       return spacing.lg;
-//     default:
-//       return spacing.xl;
-//   }
-// };
-
-// Check if device is tablet (変更なし)
+// Check if device is tablet
 export const isTablet = () => {
   return getDeviceType() === 'tablet' || getDeviceType() === 'desktop';
 };
@@ -144,15 +104,14 @@ export const isTablet = () => {
 // Get adaptive padding based on device type
 export const getAdaptivePadding = () => {
   const deviceType = getDeviceType();
-  const currentSpacing = getSpacing(); // 💡 getSpacing() を呼び出す
-
   switch (deviceType) {
     case 'small':
+      return spacing.md;
     case 'medium':
-      return currentSpacing.md;
+      return spacing.md;
     case 'large':
-      return currentSpacing.lg;
+      return spacing.lg;
     default:
-      return currentSpacing.xl;
+      return spacing.xl;
   }
 };
