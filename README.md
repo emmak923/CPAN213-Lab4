@@ -1,6 +1,6 @@
 # Responsive Dashboard App - Lab 4
 
-## Student Information - **Name:** Ema Maeda - **Student ID:** N01678730 - **Course:** CPAN 213 - **Lab:** Lab 4 - Responsive Layouts with Flexbox - **Date:** September 23, 2025
+## Student Information - **Name:** Ema Maeda - **Student ID:** N01678730 - **Course:** CPAN 213 - **Lab:** Lab 4 - Responsive Layouts with Flexbox - **Date:** October 16, 2025
 
 ## Project Description
 
@@ -35,9 +35,9 @@ src/
  └── utils/
 └── responsive.js
 
-## Responsive Breakpoints - Small phones: < 350px - Medium phones: 350-400px - Large phones: 400-500px - Tablets: 500-768px - Large tablets: > 768px
+## Responsive Breakpoints - Small phones: < 350px - Medium phones: 350-400px - Large phones: 400-500px - Tablets: 500-805px - Large tablets/Desktop: > 805px
 
-## Grid Columns by Device - Small: 1 column - Medium: 2 columns - Tablet Portrait: 2 columns - Tablet Landscape: 3-4 columns
+## Grid Columns by Device - Small: 1 column - Medium: 2 columns - Tablet Portrait: 2 columns - Tablet Landscape: 4 columns
 
 ## Performance Notes - All animations run at 60fps - StyleSheet.create used for all styles - Memoization applied where necessary - Native driver enabled for animations
 

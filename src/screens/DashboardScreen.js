@@ -115,6 +115,10 @@ const DashboardScreen = () => {
   const isTab = isTablet();
   const isLandscape = orientation === 'landscape';
 
+  console.log(
+    `[SCREEN]DashboardScreen: Rendering, Orientation: ${orientation}`,
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <DashboardHeader

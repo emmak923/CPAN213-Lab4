@@ -69,6 +69,8 @@ const ResponsiveGrid = ({
     groupedData.push(row);
   }
 
+  console.log(`[GRID] ResponsiveGrid: Rendering with ${columns} columns`);
+
   return (
     <View style={[styles.container, contentContainerStyle]}>
       {groupedData.map((rowData, rowIndex) => renderRow(rowData, rowIndex))}

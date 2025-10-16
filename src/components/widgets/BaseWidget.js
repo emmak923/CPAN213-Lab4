@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { theme } from '../../styles/theme';
@@ -61,6 +61,8 @@ const BaseWidget = ({
     );
   }
 
+  console.log(`[WIDGET] BaseWidget: Rendering title=${title}`);
+
   return content;
 };
 
@@ -100,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BaseWidget;
+export default memo(BaseWidget);

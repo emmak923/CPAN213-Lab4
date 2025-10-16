@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import BaseWidget from './BaseWidget';
@@ -20,6 +20,8 @@ const StatisticWidget = ({
   const trendColor = isPositiveTrend
     ? theme.colors.semantic.success
     : theme.colors.semantic.error;
+
+  console.log(`[STAT]StatisticWidget Rendering title=${title}`);
 
   return (
     <BaseWidget
@@ -94,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StatisticWidget;
+export default memo(StatisticWidget);
