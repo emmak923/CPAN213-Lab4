@@ -5,7 +5,7 @@ import BaseWidget from './BaseWidget';
 import { theme } from '../../styles/theme';
 import { isTablet } from '../../utils/responsive';
 
-const StatisticWidget = ({
+const StatisticWidget = memo(function StatisticWidget({
   title,
   value,
   subtitle,
@@ -14,7 +14,7 @@ const StatisticWidget = ({
   trend,
   trendValue,
   onPress,
-}) => {
+}) {
   const isTab = isTablet();
   const isPositiveTrend = trend === 'up';
   const trendColor = isPositiveTrend
@@ -59,7 +59,7 @@ const StatisticWidget = ({
       </View>
     </BaseWidget>
   );
-};
+});
 
 const styles = StyleSheet.create({
   statisticContainer: {
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(StatisticWidget);
+export default StatisticWidget;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { theme } from '../styles/theme';
 import { wp, hp, isTablet, getAdaptivePadding } from '../utils/responsive';
 
-const DashboardHeader = ({
+const DashboardHeader = memo(function DashboardHeader({
   title = 'Dashboard',
   subtitle,
   showMenu = true,
@@ -19,7 +19,7 @@ const DashboardHeader = ({
   onMenuPress,
   onNotificationPress,
   onProfilePress,
-}) => {
+}) {
   const isTab = isTablet();
 
   return (
@@ -101,7 +101,7 @@ const DashboardHeader = ({
       </View>
     </>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

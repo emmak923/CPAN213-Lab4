@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { theme } from '../../styles/theme';
 import { isTablet } from '../../utils/responsive';
 
-const BaseWidget = ({
+const BaseWidget = memo(function BaseWidget({
   title,
   icon,
   iconColor,
@@ -13,7 +13,7 @@ const BaseWidget = ({
   style,
   headerStyle,
   showArrow = false,
-}) => {
+}) {
   const isTab = isTablet();
 
   const content = (
@@ -64,7 +64,7 @@ const BaseWidget = ({
   console.log(`[WIDGET] BaseWidget: Rendering title=${title}`);
 
   return content;
-};
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -102,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(BaseWidget);
+export default BaseWidget;

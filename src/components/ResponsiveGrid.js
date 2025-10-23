@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
   getGridColumns,
@@ -8,13 +8,13 @@ import {
 } from '../utils/responsive';
 import { theme } from '../styles/theme';
 
-const ResponsiveGrid = ({
+const ResponsiveGrid = memo(function ResponsiveGrid({
   data = [],
   renderItem,
   numColumns,
   spacing = theme.spacing.sm,
   contentContainerStyle,
-}) => {
+}) {
   const [columns, setColumns] = useState(numColumns || getGridColumns());
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const ResponsiveGrid = ({
       {groupedData.map((rowData, rowIndex) => renderRow(rowData, rowIndex))}
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
